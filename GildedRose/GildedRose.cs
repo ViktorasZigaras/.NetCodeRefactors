@@ -4,15 +4,9 @@ namespace GildedRose
 {
     public class GildedRose
     {
-        readonly IList<Item> Items;
-        public GildedRose(IList<Item> Items)
+        public static void UpdateQuality(List<Item> items)
         {
-            this.Items = Items;
-        }
-
-        public void UpdateQuality()
-        {
-            foreach (var item in Items)
+            foreach (var item in items)
             {
                 // SF is static
                 if (item.Name != "Sulfuras, Hand of Ragnaros")
@@ -31,7 +25,7 @@ namespace GildedRose
                     // non tickets and non brie: regular quality drop
                     else DecreaseQuality(item);
                     // regular sell date reduction
-                    item.SellIn -= 1;
+                    item.SellIn--;
                     // if sale date is over
                     if (item.SellIn < 0)
                     {
@@ -46,7 +40,7 @@ namespace GildedRose
             }
         }
 
-        private void IncreaseQuality(Item item, int times)
+        private static void IncreaseQuality(Item item, int times)
         {
             // quality is max 50
             if (item.Quality < 50)
@@ -56,14 +50,14 @@ namespace GildedRose
             }
         }
 
-        private void DecreaseQuality(Item item)
+        private static void DecreaseQuality(Item item)
         {
             // CMC decays twice as fast
             if (item.Name == "Conjured Mana Cake") DecreaseQualityTimes(item, 2);
             else DecreaseQualityTimes(item, 1);
         }
 
-        private void DecreaseQualityTimes(Item item, int times)
+        private static void DecreaseQualityTimes(Item item, int times)
         {
             // quality is always positive
             if (item.Quality > 0)
@@ -74,6 +68,3 @@ namespace GildedRose
         }
     }
 }
-
-// !!! does brie increase value twice??
-// UpdateQuality method - static?
