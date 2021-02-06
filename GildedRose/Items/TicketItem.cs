@@ -1,7 +1,9 @@
 ﻿namespace GildedRose
 {
-    public class BackstagePasses : ConvertedItem
+    public class TicketItem : ConvertedItem
     {
+        public TicketItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+
         public override void UpdateQuality()
         {
             SellIn--;

@@ -1,7 +1,9 @@
 ﻿namespace GildedRose
 {
-    public class ManaCake : ConvertedItem
+    public class ConjuredItem : ConvertedItem
     {
+        public ConjuredItem(string name, int sellIn, int quality) : base(name, sellIn, quality) {}
+
         public override void UpdateQuality()
         {
             SellIn--;

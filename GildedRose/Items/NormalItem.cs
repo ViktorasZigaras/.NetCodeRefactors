@@ -1,7 +1,9 @@
 ﻿namespace GildedRose
 {
-    public class DexterityVest : ConvertedItem
+    public class NormalItem : ConvertedItem
     {
+        public NormalItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+
         public override void UpdateQuality()
         {
             SellIn--;

@@ -1,7 +1,9 @@
 ﻿namespace GildedRose
 {
-    public class AgedBrie : ConvertedItem
+    public class AgingItem : ConvertedItem
     {
+        public AgingItem(string name, int sellIn, int quality) : base(name, sellIn, quality) { }
+
         public override void UpdateQuality()
         {
             SellIn--;

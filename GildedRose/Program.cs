@@ -15,58 +15,15 @@ namespace GildedRose
         static void Init()
         {
             Items = new List<ConvertedItem>{
-                new DexterityVest 
-                {
-                    Name = "+5 Dexterity Vest", 
-                    SellIn = 10, 
-                    Quality = 20
-                },
-                new AgedBrie
-                {
-                    Name = "Aged Brie", 
-                    SellIn = 2, 
-                    Quality = 0
-                },
-                new ElixirOfMongoose {
-                    Name = "Elixir of the Mongoose", 
-                    SellIn = 5, 
-                    Quality = 7
-                },
-                new HandOfRagnaros {
-                    Name = "Sulfuras, Hand of Ragnaros", 
-                    SellIn = 0, 
-                    Quality = 80
-                },
-                new HandOfRagnaros
-                {
-                    Name = "Sulfuras, Hand of Ragnaros",
-                    SellIn = -1,
-                    Quality = 80
-                },
-                new BackstagePasses
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 15,
-                    Quality = 20
-                },
-                new BackstagePasses
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 10,
-                    Quality = 49
-                },
-                new BackstagePasses
-                {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
-                    SellIn = 5,
-                    Quality = 49
-                },
-				new ManaCake 
-                {
-                    Name = "Conjured Mana Cake",
-                    SellIn = 3,
-                    Quality = 6
-                }
+                new NormalItem("+5 Dexterity Vest", 10, 20),
+                new AgingItem("Aged Brie", 2, 0),
+                new NormalItem("Elixir of the Mongoose", 5, 7),
+                new ArtifactItem("Sulfuras, Hand of Ragnaros", 0, 80),
+                new ArtifactItem("Sulfuras, Hand of Ragnaros", -1, 80),
+                new TicketItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+                new TicketItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+                new TicketItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+                new ConjuredItem("Conjured Mana Cake", 3, 6)
             };
         }
         static void Display(int days)
@@ -93,10 +50,10 @@ namespace GildedRose
 }
 
 // TO DO:
+// 7) review apply min and max qualities - use additional conditions whether to call them at all
+
+// possible maybes:
 // 1) separate projects for pure logic and model logic - both runnable
 // 2) tests that compare output to pregenerated test output - separate classes and maybe projects
 // 3) unit tests? by what strategy?
-// 4) Models implement an interface
-// 5) maybe rename Item classes
-// 6) merge Elixir and Vest into a generic class
-// 7) review apply min and max qualities - use additional conditions whether to call them at all
+// 4) try to someday implement interface members x2
